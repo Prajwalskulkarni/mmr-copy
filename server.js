@@ -3,6 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import { createTable } from './tables/tableSetup.js';
 import {department} from './api/department.js'
+import employeeRouter from './routes/employeeRouter.js';
 
 dotenv.config();
 
@@ -16,6 +17,7 @@ app.get('/', (req, res) => {
   res.json({ status: 'ok', message: 'Server is running' });
 });
 app.use('/api', department);
+app.use('/api', employeeRouter);
 
 
 async function startServer() {
