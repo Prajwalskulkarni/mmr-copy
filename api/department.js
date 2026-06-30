@@ -13,6 +13,7 @@ department.post("/addDepartment" ,async (req,res)=>{
     return res.status(200).json({message:"Department addedd successfully",departmentId:response.insertId});
 });
 
+
 department.get("/getDepartments",async(req,res)=>{
     const[response]=await database.query("SELECT * FROM department");
     return res.status(200).json({departments:response});
